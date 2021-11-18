@@ -1,111 +1,80 @@
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 html,
 body {
-  overflow-x: hidden;
-  width: 100%;
-  min-height: 100%;
+  height: 100%;
+  background: #c9718d;
+}
+
+html {
+  font-family: Helvetica, sans-serif;
+  font-size: 120%;
+  line-height: 1.4;
 }
 
 body {
-  background: #c9718d;
-  color: #aaa;
-  font-size: 18px;
-  line-height: 1.4;
-  font-family: "Inconsolata", sans-serif;
+  margin: 0;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-#video-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  overflow: hidden;
-}
-.touch #video-container {
-  background: url(http://xtianmiller.com/dist/videos/winter_creek.jpg) no-repeat center;
-  background-size: cover;
-}
-
-video {
-  width: 100%;
-  height: 100%;
-}
-.touch video {
-  display: none;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 20;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding-left: 6%;
-  padding-right: 6%;
-  display: table;
-}
-.overlay__inner {
-  width: 100%;
-  height: auto;
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-}
-.overlay__logo {
-  text-align: center;
-}
-.overlay__logo svg {
-  width: 220px;
-}
-.overlay h2 {
-  max-width: 40em;
-  font-size: 28px;
-  font-weight: 700;
-  color: #fff;
-  font-family: "Raleway", sans-serif;
-  line-height: 1.3;
-  margin: 0 auto;
-}
-.overlay p {
-  padding-top: 1em;
-  max-width: 40em;
-  margin: 0 auto;
-}
-.overlay a.btn {
-  display: inline-block;
-  margin-top: 25px;
-  border: 1px solid #00c1bb;
-  color: #00c1bb;
-  text-decoration: none;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.viewport-header {
   position: relative;
-  overflow: hidden;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.overlay a.btn span {
-  display: inline-block;
-  padding: 6px 40px;
-  transition: transform 0.4s;
+
+.logo {
+  margin-top: -100px;
+  width: 220px;
+  display: block;
 }
-.overlay a.btn .row2 {
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform: translateY(100%);
+.logo svg {
+  margin-bottom: 30px;
 }
-.overlay a.btn:hover .row1 {
-  transform: translateY(-100%);
+.logo span {
+  background: #c9718d;
+  padding: 14px 20px;
+  border-radius: 10px;
 }
-.overlay a.btn:hover .row2 {
-  transform: translateY(0);
+
+h2 {
+  font-family: "Syncopate", sans-serif;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 3vw;
+  line-height: 1.2;
+  font-size: 3vw;
+  text-align: center;
+  display: block;
+}
+h2 span {
+  font-size: 10vw;
+  letter-spacing: -1.3vw;
+}
+
+a {
+  color: white;
+}
+a::visited {
+  color: white;
+}
+
+main {
+  background: rgba(0, 0, 0, 0.66);
+  color: white;
+  position: relative;
+  padding: 1rem;
+}
+main p {
+  max-width: 600px;
+  margin: 1rem auto;
 }
