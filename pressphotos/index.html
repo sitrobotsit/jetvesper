@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+  <title>Press — Jet Vesper</title>
+  <meta name="description" content="Press photos and downloads for Jet Vesper." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <link href="http://fonts.cdnfonts.com/css/helvetica-neue-9" rel="stylesheet" />
+  <link rel="stylesheet" href="../main.css" />
+  <style>
+    .press-page {
+      min-height: 100vh;
+      margin: 0;
+      padding: 1.5rem clamp(1rem, 4vw, 2.5rem) 3rem;
+      box-sizing: border-box;
+    }
+
+    .press-header {
+      max-width: 56rem;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+
+    .press-header h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .press-header p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 0.95rem;
+      max-width: 36rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .press-nav {
+      margin-top: 1rem;
+    }
+
+    .press-nav a {
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+    }
+
+    .press-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 72rem;
+      margin: 0 auto;
+    }
+
+    .press-card {
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .press-card figure {
+      margin: 0;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.2);
+      min-height: 200px;
+    }
+
+    .press-card img {
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+      display: block;
+    }
+
+    .press-card figcaption {
+      padding: 1rem 1.1rem 1.25rem;
+      color: #fff;
+    }
+
+    .press-card .title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 0 0 0.75rem;
+      line-height: 1.35;
+    }
+
+    .press-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .press-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #fff;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .press-actions a:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .press-actions a[download] {
+      background: rgba(201, 113, 141, 0.85);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .press-actions a[download]:hover {
+      background: #c9718d;
+    }
+
+    .press-empty {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 32rem;
+      margin: 2rem auto;
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TNQQ73NQT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-1TNQQ73NQT");
+  </script>
+</head>
+
+<body>
+  <div class="press-page">
+    <header class="press-header">
+      <h1>Press</h1>
+      <p>Photos for editorial use. Click download to save the full image.</p>
+      <nav class="press-nav" aria-label="Primary">
+        <a href="../">← Jet Vesper home</a>
+      </nav>
+    </header>
+
+    <div id="press-gallery" class="press-grid" hidden></div>
+    <p id="press-empty" class="press-empty" hidden>No press images are listed yet.</p>
+  </div>
+
+  <script>
+    (function () {
+      var ASSET_BASE = "../assets/press/";
+      /** Add each file in assets/press/ here (static sites cannot auto-list folders). */
+      var pressImages = [
+        {
+          file: "JV_polaroid3_Arianekiks.JPG",
+          title: "Polaroid — Ariane Kiks",
+        },
+      ];
+
+      var gallery = document.getElementById("press-gallery");
+      var empty = document.getElementById("press-empty");
+
+      if (!pressImages.length) {
+        empty.hidden = false;
+        return;
+      }
+
+      gallery.hidden = false;
+      pressImages.forEach(function (item) {
+        var src = ASSET_BASE + encodeURIComponent(item.file);
+        var safeName = item.file.replace(/[^a-zA-Z0-9._-]/g, "_");
+
+        var article = document.createElement("article");
+        article.className = "press-card";
+
+        var figure = document.createElement("figure");
+        var img = document.createElement("img");
+        img.src = src;
+        img.alt = item.title || item.file;
+        img.loading = "lazy";
+        img.decoding = "async";
+        figure.appendChild(img);
+
+        var caption = document.createElement("figcaption");
+        var title = document.createElement("p");
+        title.className = "title";
+        title.textContent = item.title || item.file;
+
+        var actions = document.createElement("div");
+        actions.className = "press-actions";
+
+        var full = document.createElement("a");
+        full.href = src;
+        full.target = "_blank";
+        full.rel = "noopener noreferrer";
+        full.textContent = "Open full size";
+
+        var dl = document.createElement("a");
+        dl.href = src;
+        dl.setAttribute("download", safeName);
+        dl.textContent = "Download";
+
+        actions.appendChild(full);
+        actions.appendChild(dl);
+        caption.appendChild(title);
+        caption.appendChild(actions);
+
+        article.appendChild(figure);
+        article.appendChild(caption);
+        gallery.appendChild(article);
+      });
+    })();
+  </script>
+</body>
+
+</html>
