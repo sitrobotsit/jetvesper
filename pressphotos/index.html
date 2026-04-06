@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js notranslate" lang="en-US" translate="no">
 
 <head>
+  <meta charset="utf-8" />
   <title>Press — Jet Vesper</title>
   <meta name="description" content="Press photos and downloads for Jet Vesper." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="content-language" content="en-US" />
+  <meta name="google" content="notranslate" />
+  <meta property="og:locale" content="en_US" />
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -27,19 +31,22 @@
       max-width: 56rem;
       margin: 0 auto 2rem;
       text-align: center;
+      padding: 1.25rem 1.5rem 1.5rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.55);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
     }
 
     .press-header h1 {
       margin: 0 0 0.5rem;
       font-size: clamp(1.25rem, 3vw, 1.75rem);
       font-weight: 600;
-      color: #fff;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      color: #2f2430;
     }
 
     .press-header p {
       margin: 0;
-      color: rgba(255, 255, 255, 0.92);
+      color: rgba(47, 36, 48, 0.82);
       font-size: 0.95rem;
       max-width: 36rem;
       margin-left: auto;
@@ -51,8 +58,17 @@
     }
 
     .press-nav a {
+      color: #8f3d62;
       text-decoration: underline;
       text-underline-offset: 0.15em;
+    }
+
+    .press-nav a:hover {
+      color: #6b2d4a;
+    }
+
+    .press-nav a:visited {
+      color: #7a3658;
     }
 
     .press-grid {
@@ -85,7 +101,6 @@
     .press-card img {
       width: 100%;
       height: auto;
-      vertical-align: middle;
       display: block;
     }
 
@@ -137,9 +152,12 @@
 
     .press-empty {
       text-align: center;
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(47, 36, 48, 0.85);
       max-width: 32rem;
       margin: 2rem auto;
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.5);
     }
   </style>
 
@@ -211,18 +229,11 @@
         var actions = document.createElement("div");
         actions.className = "press-actions";
 
-        var full = document.createElement("a");
-        full.href = src;
-        full.target = "_blank";
-        full.rel = "noopener noreferrer";
-        full.textContent = "Open full size";
-
         var dl = document.createElement("a");
         dl.href = src;
         dl.setAttribute("download", safeName);
         dl.textContent = "Download";
 
-        actions.appendChild(full);
         actions.appendChild(dl);
         caption.appendChild(title);
         caption.appendChild(actions);
